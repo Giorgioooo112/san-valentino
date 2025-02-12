@@ -48,7 +48,7 @@
         }
         #doubt {
             font-size: 18px;
-            color: red;
+            color: #f5f5dc;
             display: none;
         }
     </style>
@@ -70,17 +70,17 @@
         let doubt = document.getElementById("doubt");
         let size = 16;
         let clickCount = 0;
-        let images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
+        let sadImages = ["triste.png", "moltotriste.png", "tristissimo.png"];
         
         redButton.addEventListener("click", function() {
-            clickCount++;
             doubt.style.display = "block";
-            if (clickCount < 4) {
-                image.src = images[clickCount];
+            if (clickCount < 3) {
+                image.src = sadImages[clickCount];
             }
-            if (clickCount >= 4) {
+            if (clickCount >= 2) {
                 redButton.style.display = "none";
             }
+            clickCount++;
             size += 5;
             greenButton.style.fontSize = size + "px";
             greenButton.style.padding = (size / 2) + "px " + (size) + "px";
@@ -89,7 +89,7 @@
         greenButton.addEventListener("click", function() {
             redButton.style.display = "none";
             menuButton.style.display = "block";
-            image.src = "image_final.jpg";
+            image.src = "cucciolo.png";
         });
     </script>
 </body>
