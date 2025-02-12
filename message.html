@@ -15,6 +15,7 @@
             background-image: url('cuori-sfondo.png');
             background-size: cover;
             background-position: center;
+            color: white;
         }
         .button {
             font-size: 16px;
@@ -48,7 +49,7 @@
         }
         #doubt {
             font-size: 18px;
-            color: #f5f5dc;
+            color: white;
             display: none;
         }
     </style>
@@ -56,7 +57,7 @@
 <body>
     <p id="question">AMI TANTISSIMO IL TUO GIORGY?</p>
     <p id="doubt">DAVVERO???</p>
-    <img id="image" src="image1.jpg" alt="Immagine iniziale">
+    <img id="image" alt="Immagine">
     <button id="greenButton" class="button">SI</button>
     <button id="redButton" class="button">NO</button>
     <button id="menuButton" class="button" onclick="window.location.href='menù.html'">MENÙ PRINCIPALE</button>
@@ -70,17 +71,17 @@
         let doubt = document.getElementById("doubt");
         let size = 16;
         let clickCount = 0;
-        let images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
+        let sadImages = ["triste.png", "moltotriste.png", "tristissimo.png"];
         
         redButton.addEventListener("click", function() {
-            clickCount++;
             doubt.style.display = "block";
-            if (clickCount < 4) {
-                image.src = images[clickCount];
+            if (clickCount < 3) {
+                image.src = sadImages[clickCount];
             }
-            if (clickCount >= 4) {
+            if (clickCount >= 2) {
                 redButton.style.display = "none";
             }
+            clickCount++;
             size += 5;
             greenButton.style.fontSize = size + "px";
             greenButton.style.padding = (size / 2) + "px " + (size) + "px";
@@ -89,7 +90,7 @@
         greenButton.addEventListener("click", function() {
             redButton.style.display = "none";
             menuButton.style.display = "block";
-            image.src = "image_final.jpg";
+            image.src = "cucciolo.png";
         });
     </script>
 </body>
