@@ -12,9 +12,7 @@
             height: 100vh;
             flex-direction: column;
             text-align: center;
-            background-image: url('cuori-sfondo.png');
-            background-size: cover;
-            background-position: center;
+            background-color: #ffe6e6;
         }
         .button {
             font-size: 16px;
@@ -37,11 +35,6 @@
             background-color:#ff4d4d;
             color: white;
         }
-        #image {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 20px;
-        }
         #question {
             font-size: 20px;
             margin-bottom: 10px;
@@ -56,7 +49,6 @@
 <body>
     <p id="question">AMI TANTISSIMO IL TUO GIORGY?</p>
     <p id="doubt">DAVVERO???</p>
-    <img id="image" alt="Immagine">
     <button id="greenButton" class="button">SI</button>
     <button id="redButton" class="button">NO</button>
     <button id="menuButton" class="button" onclick="window.location.href='menù.html'">MENÙ PRINCIPALE</button>
@@ -65,7 +57,6 @@
         let greenButton = document.getElementById("greenButton");
         let redButton = document.getElementById("redButton");
         let menuButton = document.getElementById("menuButton");
-        let image = document.getElementById("image");
         let question = document.getElementById("question");
         let doubt = document.getElementById("doubt");
         let size = 16;
@@ -75,7 +66,7 @@
         redButton.addEventListener("click", function() {
             doubt.style.display = "block";
             if (clickCount < 3) {
-                image.src = sadImages[clickCount];
+                console.log(sadImages[clickCount]);
             }
             if (clickCount >= 2) {
                 redButton.style.display = "none";
@@ -89,7 +80,7 @@
         greenButton.addEventListener("click", function() {
             redButton.style.display = "none";
             menuButton.style.display = "block";
-            image.src = "cucciolo.png";
+            console.log("cucciolo.png");
         });
     </script>
 </body>
