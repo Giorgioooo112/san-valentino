@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsanti Interattivi</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            background-image: url('cuori-sfondo.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .button {
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        #greenButton {
+            background-color: green;
+            color: white;
+        }
+        #redButton {
+            background-color: red;
+            color: white;
+        }
+        #menuButton {
+            display: none;
+            background-color:#ff4d4d;
+            color: white;
+        }
+        #image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        #question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        #doubt {
+            font-size: 18px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="question">AMI TANTISSIMO IL TUO GIORGY?</p>
+    <p id="doubt">DAVVERO???</p>
+    <img id="image" src="image1.jpg" alt="Immagine iniziale">
+    <button id="greenButton" class="button">SI</button>
+    <button id="redButton" class="button">NO</button>
+    <button id="menuButton" class="button" onclick="window.location.href='index.html'">MENÙ PRINCIPALE</button>
+    
+    <script>
+        let greenButton = document.getElementById("greenButton");
+        let redButton = document.getElementById("redButton");
+        let menuButton = document.getElementById("menuButton");
+        let image = document.getElementById("image");
+        let question = document.getElementById("question");
+        let doubt = document.getElementById("doubt");
+        let size = 16;
+        let clickCount = 0;
+        let images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
+        
+        redButton.addEventListener("click", function() {
+            clickCount++;
+            doubt.style.display = "block";
+            if (clickCount < 4) {
+                image.src = images[clickCount];
+            }
+            if (clickCount >= 4) {
+                redButton.style.display = "none";
+            }
+            size += 5;
+            greenButton.style.fontSize = size + "px";
+            greenButton.style.padding = (size / 2) + "px " + (size) + "px";
+        });
+        
+        greenButton.addEventListener("click", function() {
+            redButton.style.display = "none";
+            menuButton.style.display = "block";
+            image.src = "image_final.jpg";
+        });
+    </script>
+</body>
+</html>
