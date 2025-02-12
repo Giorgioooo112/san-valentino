@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaggio Segreto ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            background-image: url('cuori-sfondo.png');
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            color: #ff4d4d;
+            margin-top: 20px;
+        }
+        .message-container {
+            margin: 20px;
+            font-size: 18px;
+            color: #d32f2f;
+        }
+        .input-password {
+            margin: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #ff4d4d;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            background-color: #ff4d4d;
+            border-radius: 5px;
+        }
+        .secret-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 22px;
+            color: #d82121e9;
+            font-weight: bold;
+        }
+        .back-button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            background-color: #ff4d4d;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Messaggio Segreto ❤️</h1>
+
+    <div class="message-container">
+        <p>Inserisci la password per sbloccare il messaggio segreto:</p>
+
+        <input type="text" id="password" class="input-password" placeholder="Inserisci l'anniversaio">
+
+        <button class="submit-button" onclick="checkPassword()">Invia</button>
+
+        <p class="secret-message" id="secret-message">Ho tanti dubbi sul mio futuro,<br> troppe domande su ciò che sarà domani.<br> <br> Eppure, nel mare incerto della vita,<br> sei l'ancorra che mi tiene saldo.<br>La bellezza del nostro legame<br> è la bussola che mi guida nel mondo.<br> <br> Non ho nessuna certezza in questa vita,<br>a parte te.<br> <br> Voglio amarti fino all'ultimo dei miei giorni❤️</p>
+    </div>
+
+    <!-- Tasto Esci -->
+    <a href="index.html" class="back-button">Torna alla Home</a>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var secretMessage = document.getElementById("secret-message");
+
+            // Verifica se la password è corretta
+            if (password === "29/04/2023" || password === "29/04/23" || password === "29042023" || password === "290423") {
+                secretMessage.style.display = "block"; // Mostra il messaggio segreto
+            } else {
+                alert("Password errata! Riprova.");
+            }
+        }
+    </script>
+</body>
+</html>
