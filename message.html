@@ -3,92 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messaggio Segreto ❤️</title>
+    <title>Pulsanti Interattivi</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ffe6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            position: relative;
             background-image: url('cuori-sfondo.png');
             background-size: cover;
             background-position: center;
         }
-        h1 {
-            color: #ff4d4d;
-            margin-top: 20px;
-        }
-        .message-container {
-            margin: 20px;
-            font-size: 18px;
-            color: #f6f2f2;
-        }
-        .input-password {
+        .button {
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
             margin: 10px;
-            padding: 10px;
-            font-size: 18px;
-            border-radius: 5px;
-            border: 1px solid #ff4d4d;
+            transition: all 0.3s ease;
         }
-        .submit-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            text-decoration: none;
+        #greenButton {
+            background-color: green;
             color: white;
-            background-color: #ff4d4d;
-            border-radius: 5px;
         }
-        .secret-message {
+        #redButton {
+            background-color: red;
+            color: white;
+        }
+        #menuButton {
             display: none;
-            margin-top: 20px;
-            font-size: 22px;
-            color: #d82121e9;
-            font-weight: bold;
-        }
-        .back-button {
-            margin-top: 30px;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            text-decoration: none;
+            background-color:#ff4d4d;
             color: white;
-            background-color: #ff4d4d;
-            border-radius: 5px;
+        }
+        #image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        #question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        #doubt {
+            font-size: 18px;
+            color: #f5f5dc;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <h1>Messaggio Segreto ❤️</h1>
-
-    <div class="message-container">
-        <p>Inserisci la password per sbloccare il messaggio segreto:</p>
-
-        <input type="text" id="password" class="input-password" placeholder="Inserisci l'anniversaio">
-
-        <button class="submit-button" onclick="checkPassword()">Invia</button>
-
-        <p class="secret-message" id="secret-message">Ho tanti dubbi sul mio futuro,<br> troppe domande su ciò che sarà domani.<br> <br> Eppure, nel mare incerto della vita,<br> sei l'ancorra che mi tiene saldo.<br>La bellezza del nostro legame<br> è la bussola che mi guida nel mondo.<br> <br> Non ho nessuna certezza in questa vita,<br>a parte te.<br> <br> Voglio amarti fino all'ultimo dei miei giorni❤️</p>
-    </div>
-
-    <!-- Tasto Esci -->
-    <a href="index.html" class="back-button">Torna alla Home</a>
-
+    <p id="question">AMI TANTISSIMO IL TUO GIORGY?</p>
+    <p id="doubt">DAVVERO???</p>
+    <img id="image" src="image1.jpg" alt="Immagine iniziale">
+    <button id="greenButton" class="button">SI</button>
+    <button id="redButton" class="button">NO</button>
+    <button id="menuButton" class="button" onclick="window.location.href='menù.html'">MENÙ PRINCIPALE</button>
+    
     <script>
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            var secretMessage = document.getElementById("secret-message");
-
-            // Verifica se la password è corretta
-            if (password === "29/04/2023" || password === "29/04/23" || password === "29042023" || password === "290423") {
-                secretMessage.style.display = "block"; // Mostra il messaggio segreto
-            } else {
-                alert("Password errata! Riprova.");
+        let greenButton = document.getElementById("greenButton");
+        let redButton = document.getElementById("redButton");
+        let menuButton = document.getElementById("menuButton");
+        let image = document.getElementById("image");
+        let question = document.getElementById("question");
+        let doubt = document.getElementById("doubt");
+        let size = 16;
+        let clickCount = 0;
+        let images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
+        
+        redButton.addEventListener("click", function() {
+            clickCount++;
+            doubt.style.display = "block";
+            if (clickCount < 4) {
+                image.src = images[clickCount];
             }
-        }
+            if (clickCount >= 4) {
+                redButton.style.display = "none";
+            }
+            size += 5;
+            greenButton.style.fontSize = size + "px";
+            greenButton.style.padding = (size / 2) + "px " + (size) + "px";
+        });
+        
+        greenButton.addEventListener("click", function() {
+            redButton.style.display = "none";
+            menuButton.style.display = "block";
+            image.src = "image_final.jpg";
+        });
     </script>
 </body>
 </html>
