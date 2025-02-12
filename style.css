@@ -1,0 +1,46 @@
+/* Aggiungi al tuo file CSS */
+@keyframes fall-heart {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes fall-snowflake {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.heart, .snowflake {
+    position: absolute;
+    top: -50px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.heart {
+    font-size: 30px;
+    color: #ff4d4d;
+    animation: fall-heart 5s linear infinite;
+}
+
+.snowflake {
+    font-size: 20px;
+    color: #ffffff;
+    animation: fall-snowflake 7s linear infinite;
+}
+
+.snowflake::before {
+    content: "❄️";
+}
+
+.heart::before {
+    content: "❤️";
+}
